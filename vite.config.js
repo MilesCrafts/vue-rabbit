@@ -27,4 +27,15 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+
+  // 3. 配置 scss 自动导入
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@/styles/var.scss" as *;
+        @use "@/styles/element/index.scss" as *;
+        `
+      }
+    }
+  }
 })
